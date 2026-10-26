@@ -1,0 +1,221 @@
+[
+  {
+    "name": "GTK-Bekhocha",
+    "language": "C",
+    "description": "A C/GTK3 parser that reads an HTML-like widget description and builds GTK interfaces.",
+    "details": {
+      "problem": "Describe GTK3 interfaces with a small HTML-like input format instead of assembling every widget by hand.",
+      "architecture": ["HTML-like input", "C line parser", "widget records", "GTK3 interface"],
+      "features": [
+        "Parses tags and attributes into fixed-capacity widget records",
+        "Tracks parent/container relationships",
+        "Builds a GTK widget tree from parsed descriptions"
+      ],
+      "challenges": [
+        "Mapping nested input tags onto a bounded widget/parent stack",
+        "Translating parsed attributes into GTK widget properties"
+      ],
+      "learned": ["Separating parsing, intermediate data structures, and GTK widget creation"],
+      "technologies": ["C", "GTK3", "GDK"],
+      "evidence": ["Parser/parser.c", "Parser/structures.c", "Parser/Makefile"],
+      "screenshot": "TODO: capture a GTK-Bekhocha interface screenshot."
+    },
+    "categories": ["C", "GTK", "parser", "desktop", "GUI"],
+    "suggestedDescription": "A C and GTK3 toolkit that parses HTML-like interface files into native GTK widgets.",
+    "suggestedTopics": ["c", "gtk3", "parser", "gui", "desktop-application"]
+  },
+  {
+    "name": "AquariumGTK",
+    "language": "C",
+    "description": "A GTK and Cairo aquarium simulation with animated fish groups and interactive controls.",
+    "details": {
+      "problem": "Render and update a small interactive aquarium simulation inside a GTK desktop application.",
+      "architecture": [
+        "GTK input callbacks",
+        "fish/group simulation state",
+        "timed animation tick",
+        "Cairo drawing"
+      ],
+      "features": [
+        "Animates fish in groups with leaders and predators",
+        "Uses a timed GTK callback to update simulation state",
+        "Draws fish and effects with Cairo",
+        "Handles cursor interaction, feeding, group changes, zoom, and panning"
+      ],
+      "challenges": [
+        "Keeping movement, group state, and drawing in sync across animation ticks",
+        "Rendering many entities while responding to pointer input"
+      ],
+      "learned": [
+        "Connecting event-driven GTK input, simulation updates, and custom Cairo rendering"
+      ],
+      "technologies": ["C", "GTK", "Cairo", "GDK Pixbuf"],
+      "evidence": ["Aquarium6.c", "structures.c", "structures.h"],
+      "screenshot": "TODO: capture the running AquariumGTK simulation."
+    },
+    "categories": ["C", "GTK", "simulation", "graphics", "desktop"],
+    "suggestedDescription": "An interactive C/GTK aquarium simulation with animated fish groups rendered in Cairo.",
+    "suggestedTopics": ["c", "gtk", "cairo", "simulation", "desktop-application"]
+  },
+  {
+    "name": "GTKFinalVers",
+    "language": "C",
+    "description": "A modular GTK3 widget/parser project with separate parsing, widget-factory, and utility modules.",
+    "details": {
+      "problem": "Represent GTK widget properties as structured values, parse interface descriptions, and create the corresponding GTK widgets.",
+      "architecture": [
+        "interface input",
+        "parser and attribute model",
+        "typed widget records",
+        "GTK widget factory"
+      ],
+      "features": [
+        "Defines records for windows, buttons, labels, menus, entries, and containers",
+        "Parses widget attributes into typed structures",
+        "Creates GTK widgets from parsed records",
+        "Includes separate parser, utility, and widget-factory modules"
+      ],
+      "challenges": [
+        "Keeping parser attributes aligned with the many widget-specific properties",
+        "Composing nested GTK containers from parsed input"
+      ],
+      "learned": [
+        "Decomposing a GTK application into parsing, data-model, and widget-construction modules"
+      ],
+      "technologies": ["C", "GTK3", "GLib"],
+      "evidence": [
+        "project/src/parser.c",
+        "project/src/types.h",
+        "project/src/widget_factory.c",
+        "project/src/utils.c"
+      ],
+      "screenshot": "TODO: capture the GTKFinalVers application."
+    },
+    "categories": ["C", "GTK", "parser", "GUI", "desktop"],
+    "suggestedDescription": "A modular C/GTK3 project for parsing interface descriptions and constructing native widgets.",
+    "suggestedTopics": ["c", "gtk3", "glib", "gui", "widget-toolkit"]
+  },
+  {
+    "name": "TRackRS",
+    "language": "C++",
+    "description": "A GPL-2.0 C++11 modernization of Trigger Rally, with SDL2/OpenGL rendering and a vehicle simulation engine.",
+    "details": {
+      "problem": "Maintain and modernize a real-time 3D rally game spanning application, rendering, game, and physics subsystems.",
+      "architecture": [
+        "SDL2 application",
+        "Trigger game and content",
+        "PSim vehicle/rigid-body simulation",
+        "OpenGL rendering and PEngine"
+      ],
+      "features": [
+        "Builds C++ sources across PEngine, PSim, and Trigger using GNU Make",
+        "Loads levels, vehicles, and configuration data",
+        "Advances vehicles and rigid bodies in fixed-size simulation steps",
+        "Uses SDL2, OpenGL, PhysFS, and TinyXML-2"
+      ],
+      "challenges": [
+        "Coordinating simulation, rendering, content loading, and platform dependencies",
+        "Maintaining behavior across a large inherited codebase"
+      ],
+      "learned": [
+        "TODO: confirm which changes and subsystems are your own contributions versus inherited Trigger Rally code"
+      ],
+      "technologies": ["C++11", "SDL2", "OpenGL", "GNU Make", "PhysFS", "TinyXML-2"],
+      "evidence": [
+        "README.md",
+        "src/GNUmakefile",
+        "src/PSim/sim.cpp",
+        "src/Trigger/game.cpp",
+        "src/PEngine/app.cpp"
+      ],
+      "screenshot": "TODO: capture gameplay and clearly distinguish your own changes from upstream assets/code."
+    },
+    "categories": ["C++", "game-engine", "simulation", "OpenGL", "systems"],
+    "suggestedDescription": "A C++11 SDL2/OpenGL rally game fork with vehicle physics, content loading, and a modular engine.",
+    "suggestedTopics": [
+      "cpp",
+      "opengl",
+      "sdl2",
+      "physics-simulation",
+      "rally-game",
+      "trigger-rally"
+    ]
+  },
+  {
+    "name": "std-LIST-std-VECTOR",
+    "language": "C++",
+    "description": "A C++ benchmark comparing vector and list erasure strategies, memory locality, and cache behavior.",
+    "details": {
+      "problem": "Measure how vector/list layout and different erase algorithms affect a full traversal-and-removal workload.",
+      "architecture": [
+        "shared Item/data helpers",
+        "vector and list strategies",
+        "timed repeated runs",
+        "checksums and comparison output"
+      ],
+      "features": [
+        "Compares vector erase, compact and scattered lists",
+        "Implements one-pass compaction, C++20 erase_if, and swap-and-pop",
+        "Checks result counts and value sums across alternatives",
+        "Builds C++17 and C++20 targets with a Makefile"
+      ],
+      "challenges": [
+        "Keeping the measured work equivalent between strategies",
+        "Separating setup/copying from the timed region",
+        "Explaining cache locality alongside asymptotic complexity"
+      ],
+      "learned": ["Benchmark results depend on data layout and workload, not Big-O notation alone"],
+      "technologies": ["C++17", "C++20", "std::vector", "std::list", "std::erase_if", "Make"],
+      "evidence": ["README.md", "Makefile", "common.hpp", "problem.cpp", "fixed.cpp"],
+      "screenshot": "TODO: capture a representative benchmark run and include machine/compiler context."
+    },
+    "categories": ["C++", "benchmark", "data-structures", "performance", "cache-locality"],
+    "suggestedDescription": "A C++ benchmark comparing vector/list erasure strategies, cache locality, and linear-time alternatives.",
+    "suggestedTopics": [
+      "cpp",
+      "std-vector",
+      "std-list",
+      "benchmark",
+      "cache-locality",
+      "data-structures"
+    ]
+  },
+  {
+    "name": "List-Vector",
+    "language": "C++",
+    "description": "Small C++ examples of breadth-first traversal over an n-ary tree using std::queue.",
+    "details": {
+      "problem": "Demonstrate level-order traversal on an n-ary tree and compare plain and timed implementations.",
+      "architecture": [
+        "Node with child pointers",
+        "std::queue frontier",
+        "breadth-first traversal",
+        "recursive tree cleanup"
+      ],
+      "features": [
+        "Traverses each level by enqueueing child nodes",
+        "Includes a timed traversal variant using std::chrono",
+        "Frees the example tree recursively"
+      ],
+      "challenges": [
+        "Managing ownership of a raw-pointer tree in the sample",
+        "Measuring a very small traversal where output affects timing"
+      ],
+      "learned": [
+        "TODO: confirm the intended learning outcome or any measured performance conclusion"
+      ],
+      "technologies": ["C++", "std::queue", "std::vector", "std::chrono"],
+      "evidence": ["parcours_largeur.cpp", "queue.cpp", "queuePerf.cpp"],
+      "screenshot": "TODO: capture example output if a visual is needed."
+    },
+    "categories": ["C++", "data-structures", "algorithms", "BFS", "STL"],
+    "suggestedDescription": "C++ examples of breadth-first traversal on an n-ary tree with std::queue and timing.",
+    "suggestedTopics": [
+      "cpp",
+      "breadth-first-search",
+      "std-queue",
+      "tree-traversal",
+      "data-structures"
+    ]
+  }
+]

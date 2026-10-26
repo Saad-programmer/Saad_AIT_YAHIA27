@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://saadaityahia.vercel.app/sitemap.xml
